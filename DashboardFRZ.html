@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1c1c;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .menu {
+            text-align: center;
+        }
+        h1 {
+            color: #A98201;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .category {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #A98201;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+        }
+        .button:hover {
+            background-color: #846401;
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+        }
+        .password-container {
+            margin-top: 10px;
+            display: none;
+            flex-direction: column; /* Alinha os elementos em coluna */
+            align-items: Left;   /* Centraliza horizontalmente */
+            gap: 10px; /* Espaçamento entre os elementos */
+        }
+        .password-input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #A98201;
+            border-radius: 8px;
+            background-color: #333;
+            color: white;
+            outline: none;
+            width: 150px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+        .password-input:focus {
+            border-color: #846401;
+        }
+        .enter-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #A98201;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .enter-button:hover {
+            background-color: #846401;
+            transform: scale(1.05);
+        }
+        .dashboard {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+        }
+        .back {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 100%;
+            background-color: #A98201;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: none;
+            text-align: center;
+            font-size: 16px;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            z-index: 10;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .back:hover {
+            background-color: #846401;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <h1>Menu</h1>
+        <div class="button-container">
+            <div class="category">
+                <button class="button" onclick="togglePassword('comercial')">
+                    <span class="button-icon">📈</span> Comercial
+                </button>
+                <div class="password-container" id="comercialPasswordContainer">
+                    <input type="password" class="password-input" id="comercialPassword" placeholder="Senha">
+                    <button class="enter-button" onclick="openDashboard('comercial')">Entrar</button>
+                </div>
+            </div>
+            <div class="category">
+                <button class="button" onclick="togglePassword('pedagogico')">
+                    <span class="button-icon">📚</span> Pedagógico
+                </button>
+                <div class="password-container" id="pedagogicoPasswordContainer">
+                    <input type="password" class="password-input" id="pedagogicoPassword" placeholder="Senha">
+                    <button class="enter-button" onclick="openDashboard('pedagogico')">Entrar</button>
+                </div>
+            </div>
+            <div class="category">
+                <button class="button" onclick="togglePassword('financeiro')">
+                    <span class="button-icon">💰</span> Financeiro
+                </button>
+                <div class="password-container" id="financeiroPasswordContainer">
+                    <input type="password" class="password-input" id="financeiroPassword" placeholder="Senha">
+                    <button class="enter-button" onclick="openDashboard('financeiro')">Entrar</button>
+                </div>
+            </div>
+            <div class="category">
+                <button class="button" onclick="togglePassword('marketing')">
+                    <span class="button-icon">📢</span> Marketing
+                </button>
+                <div class="password-container" id="marketingPasswordContainer">
+                    <input type="password" class="password-input" id="marketingPassword" placeholder="Senha">
+                    <button class="enter-button" onclick="openDashboard('marketing')">Entrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <iframe id="dashboard" class="dashboard"></iframe>
+    <button id="backButton" class="back" onclick="goBack()">Voltar</button>
+
+    <script>
+        const passwords = {
+            comercial: '0000',
+            pedagogico: '1111',
+            financeiro: '2222',
+            marketing: '3333'
+        };
+
+        const dashboardLinks = {
+            comercial: 'https://app.powerbi.com/view?r=eyJrIjoiNmEyZjEyYzgtMmQ2OC00MDdlLWE1NWItMzhjZTkxOGUwOTY1IiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9',
+            pedagogico: 'https://app.powerbi.com/view?r=eyJrIjoiODdlMWJkNDQtZGQ0Yy00OGZiLWIxZGUtY2E1YmI4NmRiMTg1IiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9',
+            financeiro: '',
+            marketing: ''
+        };
+
+        function togglePassword(section) {
+            const allPasswordContainers = document.querySelectorAll('.password-container');
+            allPasswordContainers.forEach(container => {
+                container.style.display = 'none';
+            });
+            const container = document.getElementById(`${section}PasswordContainer`);
+            container.style.display = 'flex';
+        }
+
+        function openDashboard(section) {
+            const passwordInput = document.getElementById(`${section}Password`);
+            const userPassword = passwordInput.value;
+
+            if (userPassword === passwords[section]) {
+                if (dashboardLinks[section]) {
+                    document.querySelector('.menu').style.display = 'none';
+                    document.querySelector('#dashboard').style.display = 'block';
+                    document.querySelector('#backButton').style.display = 'block';
+                    document.querySelector('#dashboard').src = dashboardLinks[section];
+                } else {
+                    alert('Dashboard em criação');
+                }
+            } else {
+                alert('Senha incorreta!');
+            }
+            passwordInput.value = '';
+        }
+
+        function goBack() {
+            document.querySelector('.menu').style.display = 'block';
+            document.querySelector('#dashboard').style.display = 'none';
+            document.querySelector('#backButton').style.display = 'none';
+            document.querySelector('#dashboard').src = '';
+        }
+    </script>
+</body>
+</html>
