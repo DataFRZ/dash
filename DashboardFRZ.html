@@ -56,9 +56,9 @@
         .password-container {
             margin-top: 10px;
             display: none;
-            flex-direction: column; /* Alinha os elementos em coluna */
-            align-items: Left;   /* Centraliza horizontalmente */
-            gap: 10px; /* Espaçamento entre os elementos */
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
         .password-input {
             padding: 10px;
@@ -132,7 +132,7 @@
                     <span class="button-icon">📈</span> Comercial
                 </button>
                 <div class="password-container" id="comercialPasswordContainer">
-                    <input type="password" class="password-input" id="comercialPassword" placeholder="Senha">
+                    <input type="password" class="password-input" id="comercialPassword" placeholder="Senha" onkeydown="handleEnter(event, 'comercial')">
                     <button class="enter-button" onclick="openDashboard('comercial')">Entrar</button>
                 </div>
             </div>
@@ -141,7 +141,7 @@
                     <span class="button-icon">📚</span> Pedagógico
                 </button>
                 <div class="password-container" id="pedagogicoPasswordContainer">
-                    <input type="password" class="password-input" id="pedagogicoPassword" placeholder="Senha">
+                    <input type="password" class="password-input" id="pedagogicoPassword" placeholder="Senha" onkeydown="handleEnter(event, 'pedagogico')">
                     <button class="enter-button" onclick="openDashboard('pedagogico')">Entrar</button>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                     <span class="button-icon">💰</span> Financeiro
                 </button>
                 <div class="password-container" id="financeiroPasswordContainer">
-                    <input type="password" class="password-input" id="financeiroPassword" placeholder="Senha">
+                    <input type="password" class="password-input" id="financeiroPassword" placeholder="Senha" onkeydown="handleEnter(event, 'financeiro')">
                     <button class="enter-button" onclick="openDashboard('financeiro')">Entrar</button>
                 </div>
             </div>
@@ -159,7 +159,7 @@
                     <span class="button-icon">📢</span> Marketing
                 </button>
                 <div class="password-container" id="marketingPasswordContainer">
-                    <input type="password" class="password-input" id="marketingPassword" placeholder="Senha">
+                    <input type="password" class="password-input" id="marketingPassword" placeholder="Senha" onkeydown="handleEnter(event, 'marketing')">
                     <button class="enter-button" onclick="openDashboard('marketing')">Entrar</button>
                 </div>
             </div>
@@ -173,8 +173,8 @@
         const passwords = {
             comercial: 'Com@#2025',
             pedagogico: 'Ped@#2025',
-            financeiro: 'SenhaAqui',
-            marketing: 'SenhaAqui'
+            financeiro: '2222',
+            marketing: '3333'
         };
 
         const dashboardLinks = {
@@ -209,7 +209,12 @@
             } else {
                 alert('Senha incorreta!');
             }
-            passwordInput.value = '';
+        }
+
+        function handleEnter(event, section) {
+            if (event.key === 'Enter') {
+                openDashboard(section);
+            }
         }
 
         function goBack() {
