@@ -134,26 +134,28 @@
             border: none;
             display: none;
         }
-        .back {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            background: linear-gradient(145deg, #FFC107, #D48E00);
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-            display: none;
-            transition: background 0.3s, transform 0.2s;
-        }
-        .back:hover {
-            background: linear-gradient(145deg, #D48E00, #FFC107);
-            transform: scale(1.05);
-        }
+		.back, .refresh {
+			position: fixed;
+			top: 20px;
+			left: 20px;
+			padding: 10px 20px;
+			font-size: 16px;
+			background: linear-gradient(145deg, #FFC107, #D48E00);
+			color: white;
+			border: none;
+			cursor: pointer;
+			border-radius: 12px;
+			text-align: center;
+			box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+			display: none;
+			transition: background 0.3s, transform 0.2s;
+			width: 120px; 
+		}
+
+		.refresh {
+			top: 60px;
+		}
+
     </style>
 </head>
 <body>
@@ -193,9 +195,9 @@
 
     <iframe id="dashboard" class="dashboard"></iframe>
     <button id="backButton" class="back" onclick="goBack()">Voltar</button>
+    <button id="refreshButton" class="refresh" onclick="reloadDashboard()">Atualizar</button>
 
     <script>
-        // Ofuscar senhas e links em Base64
         const encodedData = {
             passwords: {
                 comercial: btoa('Com@#2025'),
@@ -231,6 +233,7 @@
                     document.querySelector('.menu').style.display = 'none';
                     document.querySelector('#dashboard').style.display = 'block';
                     document.querySelector('#backButton').style.display = 'block';
+                    document.querySelector('#refreshButton').style.display = 'block';
                     document.querySelector('#dashboard').src = decodedLink;
                 } else {
                     alert('Dashboard em criação');
@@ -250,7 +253,13 @@
             document.querySelector('.menu').style.display = 'block';
             document.querySelector('#dashboard').style.display = 'none';
             document.querySelector('#backButton').style.display = 'none';
+            document.querySelector('#refreshButton').style.display = 'none';
             document.querySelector('#dashboard').src = '';
+        }
+
+        function reloadDashboard() {
+            const iframe = document.querySelector('#dashboard');
+            iframe.src = iframe.src;
         }
     </script>
 </body>
