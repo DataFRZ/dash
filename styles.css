@@ -40,13 +40,13 @@ h1 {
 .button-container {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-wrap: nowrap; /* Impede que os botões quebrem para outra linha */
+    gap: 10px; /* Reduz um pouco o espaçamento */
 }
+
 .category {
-    flex: 1 0 23%;
-    min-width: 200px;
-    text-align: center;
+    flex: 1 0 18%; /* Ajuste fino para garantir que 5 botões caibam */
+    min-width: 150px; /* Reduzindo para caber melhor */
 }
 .button {
     padding: 15px 25px;
@@ -111,6 +111,14 @@ h1 {
     z-index: 10;
 }
 
+.button img.icon {
+    width: 80px; /* Ajuste para o tamanho que preferir */
+    height: 25px;
+    margin-right: 10px; /* Adiciona um pequeno espaço entre a imagem e o texto */
+    vertical-align: middle; /* Alinha a imagem verticalmente no meio do botão */
+}
+
+
 #backButton, #refreshButton {
     display: none; /* Inicialmente ocultos */
     position: absolute;
@@ -127,6 +135,18 @@ h1 {
     z-index: 20;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
+
+.button-mcis245 {
+    background: linear-gradient(145deg, #808080, #666666); /* Tons de cinza */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.button-mcis245:hover {
+    background: linear-gradient(145deg, #666666, #808080); /* Alteração na cor ao passar o mouse */
+    transform: scale(1.05);
+}
+
+
 
 #backButton {
     left: 20px; /* Botão Voltar à esquerda */
