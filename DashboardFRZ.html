@@ -38,6 +38,13 @@
                     <button class="enter-button" onclick="openDashboard('marketing')">Entrar</button>
                 </div>
             </div>
+            <div class="category">
+                <button class="button" onclick="togglePassword('treinador')">🎓 Treinadores</button>
+                <div class="password-container" id="treinadorPasswordContainer">
+                    <input type="password" class="password-input" id="treinadorPassword" placeholder="Senha" onkeydown="handleEnter(event, 'treinador')">
+                    <button class="enter-button" onclick="openDashboard('treinador')">Entrar</button>
+                </div>
+            </div>
 			<div class="category">
 				<button class="button button-mcis245" onclick="openDashboard('metodocis245')">
 					<img src="https://github.com/DataFRZ/dash/blob/main/Logo.png?raw=true" alt="Ícone MCIS 245" class="icon">
