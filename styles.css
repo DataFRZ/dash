@@ -56,19 +56,24 @@ h1 {
 }
 
 .button {
-    padding: 16px 24px;
-    font-size: 18px;
-    font-weight: 600;
-    text-align: center;
-    color: white;
-    background: linear-gradient(145deg, #FFC107, #D48E00);
+    background-color: #f5a623;
     border: none;
-    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
-    width: 100%; 
-    min-width: 160px;
+    min-width: 180px;       /* Tamanho mínimo */
+    height: 60px;            /* Altura fixa */
+    white-space: nowrap;    /* Impede quebra de linha */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;                /* Espaço entre emoji e texto */
+    text-align: center;
+    transition: transform 0.2s;
 }
 
 
@@ -151,16 +156,6 @@ h1 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-.button-mcis245 {
-    background: linear-gradient(145deg, #808080, #666666); /* Tons de cinza */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
-
-.button-mcis245:hover {
-    background: linear-gradient(145deg, #666666, #808080); /* Alteração na cor ao passar o mouse */
-    transform: scale(1.05);
-}
-
 #backButton {
     left: 20px; /* Botão Voltar à esquerda */
 }
@@ -200,9 +195,18 @@ h1 {
 }
 
 .button-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    min-height: 220px; /* Garante espaço para o campo não sobrepor */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.button-row {
+  display: flex;
+  gap: 16px;
+}
+
+.button-row.center {
+  justify-content: center;
 }

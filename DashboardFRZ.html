@@ -10,47 +10,48 @@
     <div class="menu">
         <h1>Escolha sua Área</h1>
         <div class="button-container">
-            <div class="category">
-                <button class="button" onclick="togglePassword('comercial')">📈 Comercial</button>
-                <div class="password-container" id="comercialPasswordContainer">
-                    <input type="password" class="password-input" id="comercialPassword" placeholder="Senha" onkeydown="handleEnter(event, 'comercial')">
-                    <button class="enter-button" onclick="openDashboard('comercial')">Entrar</button>
-                </div>
-            </div>
-            <div class="category">
-                <button class="button" onclick="togglePassword('pedagogico')">📚 Pedagógico</button>
-                <div class="password-container" id="pedagogicoPasswordContainer">
-                    <input type="password" class="password-input" id="pedagogicoPassword" placeholder="Senha" onkeydown="handleEnter(event, 'pedagogico')">
-                    <button class="enter-button" onclick="openDashboard('pedagogico')">Entrar</button>
-                </div>
-            </div>
-            <div class="category">
-                <button class="button" onclick="togglePassword('financeiro')">💰 Financeiro</button>
-                <div class="password-container" id="financeiroPasswordContainer">
-                    <input type="password" class="password-input" id="financeiroPassword" placeholder="Senha" onkeydown="handleEnter(event, 'financeiro')">
-                    <button class="enter-button" onclick="openDashboard('financeiro')">Entrar</button>
-                </div>
-            </div>
-            <div class="category">
-                <button class="button" onclick="togglePassword('marketing')">📢 Marketing</button>
-                <div class="password-container" id="marketingPasswordContainer">
-                    <input type="password" class="password-input" id="marketingPassword" placeholder="Senha" onkeydown="handleEnter(event, 'marketing')">
-                    <button class="enter-button" onclick="openDashboard('marketing')">Entrar</button>
-                </div>
-            </div>
-            <div class="category">
-                <button class="button" onclick="togglePassword('treinador')">🎓 Treinadores</button>
-                <div class="password-container" id="treinadorPasswordContainer">
-                    <input type="password" class="password-input" id="treinadorPassword" placeholder="Senha" onkeydown="handleEnter(event, 'treinador')">
-                    <button class="enter-button" onclick="openDashboard('treinador')">Entrar</button>
-                </div>
-            </div>
-			<div class="category">
-				<button class="button button-mcis245" onclick="openDashboard('metodocis245')">
-					<img src="https://github.com/DataFRZ/dash/blob/main/Logo.png?raw=true" alt="Ícone MCIS 245" class="icon">
-				</button>
+			<div class="button-row">
+				<div class="category">
+					<button class="button" onclick="togglePassword('comercial')">📈 Comercial</button>
+					<div class="password-container" id="comercialPasswordContainer">
+						<input type="password" class="password-input" id="comercialPassword" placeholder="Senha" onkeydown="handleEnter(event, 'comercial')">
+						<button class="enter-button" onclick="openDashboard('comercial')">Entrar</button>
+					</div>
+				</div>
+				<div class="category">
+					<button class="button" onclick="togglePassword('pedagogico')">📚 Pedagógico</button>
+					<div class="password-container" id="pedagogicoPasswordContainer">
+						<input type="password" class="password-input" id="pedagogicoPassword" placeholder="Senha" onkeydown="handleEnter(event, 'pedagogico')">
+						<button class="enter-button" onclick="openDashboard('pedagogico')">Entrar</button>
+					</div>
+				</div>
+				<div class="category">
+					<button class="button" onclick="togglePassword('financeiro')">💰 Financeiro</button>
+					<div class="password-container" id="financeiroPasswordContainer">
+						<input type="password" class="password-input" id="financeiroPassword" placeholder="Senha" onkeydown="handleEnter(event, 'financeiro')">
+						<button class="enter-button" onclick="openDashboard('financeiro')">Entrar</button>
+					</div>
+				</div>
 			</div>
-        </div>
+
+			<div class="button-row center">
+				<div class="category">
+					<button class="button" onclick="togglePassword('marketing')">📢 Marketing</button>
+					<div class="password-container" id="marketingPasswordContainer">
+						<input type="password" class="password-input" id="marketingPassword" placeholder="Senha" onkeydown="handleEnter(event, 'marketing')">
+						<button class="enter-button" onclick="openDashboard('marketing')">Entrar</button>
+					</div>
+				</div>
+				<div class="category">
+					<button class="button" onclick="togglePassword('treinador')">🎓 Treinadores</button>
+					<div class="password-container" id="treinadorPasswordContainer">
+						<input type="password" class="password-input" id="treinadorPassword" placeholder="Senha" onkeydown="handleEnter(event, 'treinador')">
+						<button class="enter-button" onclick="openDashboard('treinador')">Entrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
     </div>
 
 	<iframe id="dashboard" class="dashboard"></iframe>

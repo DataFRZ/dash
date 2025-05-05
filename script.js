@@ -12,7 +12,6 @@ const encodedData = {
         financeiro: btoa('https://app.powerbi.com/view?r=eyJrIjoiYTI0MjdkMDctNTc2MC00OTM1LWI0NDItNTM0N2NhZmE5YmZkIiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
         marketing: btoa('https://app.powerbi.com/view?r=eyJrIjoiZDk2YTkxZDAtY2NmNy00YmU5LWFkYzAtZDNiOGFmZDE4N2U2IiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
         treinador: btoa('https://app.powerbi.com/view?r=eyJrIjoiZDAyZGI0NTItZTUyMi00MzA4LTlkZDAtNzk3NzU2M2NhNjViIiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
-        metodocis245: btoa('https://app.powerbi.com/view?r=eyJrIjoiOTQ2OGVlY2QtMDc2MC00YzIzLThhYWUtY2Q2ZGU5ZjQwZjIxIiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9')
     }
 };
 
