@@ -12,10 +12,11 @@ const encodedData = {
         financeiro: btoa('https://app.powerbi.com/view?r=eyJrIjoiYTI0MjdkMDctNTc2MC00OTM1LWI0NDItNTM0N2NhZmE5YmZkIiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
         marketing: btoa('https://app.powerbi.com/view?r=eyJrIjoiZDk2YTkxZDAtY2NmNy00YmU5LWFkYzAtZDNiOGFmZDE4N2U2IiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
         treinador: btoa('https://app.powerbi.com/view?r=eyJrIjoiZDAyZGI0NTItZTUyMi00MzA4LTlkZDAtNzk3NzU2M2NhNjViIiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
+        ranking: btoa('https://app.powerbi.com/view?r=eyJrIjoiZWE3MTE4ZmItMDI1ZS00MjVlLWFkZTQtZjM5OWJkYjM1NjcxIiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9')
     }
 };
 
-// Alterna a exibição do campo de senha
+// 🔐 Alterna a exibição do campo de senha
 function togglePassword(section) {
     document.querySelectorAll('.password-container').forEach(container => {
         container.style.display = 'none';
@@ -27,16 +28,18 @@ function togglePassword(section) {
     }
 }
 
+// 🚪 Abre dashboards que exigem senha
 function openDashboard(section) {
     // Esconde todos os campos de senha antes de abrir o dashboard
     document.querySelectorAll('.password-container').forEach(container => {
         container.style.display = 'none';
     });
 
+    // Validação de senha (exceto para metodocis245)
     if (section !== 'metodocis245') {
         const passwordInput = document.getElementById(`${section}Password`);
         if (!passwordInput) return; // Evita erro caso o campo não exista
-        
+
         const userPassword = passwordInput.value;
         if (userPassword !== atob(encodedData.passwords[section])) {
             alert('Senha incorreta!');
@@ -44,36 +47,43 @@ function openDashboard(section) {
         }
     }
 
-    // Esconder completamente a seção do menu
-    document.querySelector('.menu').style.display = 'none';
-
-    // Exibir o dashboard
-    const decodedLink = atob(encodedData.dashboardLinks[section]);
-    document.querySelector('#dashboard').style.display = 'block';
-    document.querySelector('#backButton').style.display = 'block';
-    document.querySelector('#refreshButton').style.display = 'block';
-    document.querySelector('#dashboard').src = decodedLink;
+    abrirDashboard(section);
 }
 
+// 🏆 Abre o dashboard de Ranking (sem senha)
+function openRanking() {
+    abrirDashboard('ranking');
+}
 
-// Permite abrir o dashboard ao pressionar "Enter"
+// 🔄 Função centralizada para abrir qualquer dashboard
+function abrirDashboard(section) {
+    document.querySelector('.menu').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    document.getElementById('backButton').style.display = 'block';
+    document.getElementById('refreshButton').style.display = 'block';
+
+    const decodedLink = atob(encodedData.dashboardLinks[section]);
+    document.getElementById('dashboard').src = decodedLink;
+}
+
+// ⌨️ Permite abrir o dashboard pressionando "Enter"
 function handleEnter(event, section) {
     if (event.key === 'Enter') {
         openDashboard(section);
     }
 }
 
-// Voltar para o menu inicial
+// 🔙 Voltar para o menu inicial
 function goBack() {
     document.querySelector('.menu').style.display = 'block';
-    document.querySelector('#dashboard').style.display = 'none';
-    document.querySelector('#backButton').style.display = 'none';
-    document.querySelector('#refreshButton').style.display = 'none';
-    document.querySelector('#dashboard').src = '';
+    document.getElementById('dashboard').style.display = 'none';
+    document.getElementById('backButton').style.display = 'none';
+    document.getElementById('refreshButton').style.display = 'none';
+    document.getElementById('dashboard').src = '';
 }
 
-// Recarrega o dashboard
+// 🔄 Recarregar o dashboard
 function reloadDashboard() {
-    const iframe = document.querySelector('#dashboard');
-    iframe.src = iframe.src; // Atualiza sem recarregar toda a página
+    const iframe = document.getElementById('dashboard');
+    iframe.src = iframe.src;
 }
