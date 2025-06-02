@@ -50,6 +50,15 @@ function openDashboard(section) {
     abrirDashboard(section);
 }
 
+function showSidebar() {
+    document.querySelector('.sidebar-vazia').style.display = 'block';
+  }
+  
+  function hideSidebar() {
+    document.querySelector('.sidebar-vazia').style.display = 'none';
+  }
+  
+
 // 🏆 Abre o dashboard de Ranking (sem senha)
 function openRanking() {
     abrirDashboard('ranking');
@@ -62,9 +71,12 @@ function abrirDashboard(section) {
     document.getElementById('backButton').style.display = 'block';
     document.getElementById('refreshButton').style.display = 'block';
 
+    showSidebar();  // <-- mostra a sidebar aqui
+
     const decodedLink = atob(encodedData.dashboardLinks[section]);
     document.getElementById('dashboard').src = decodedLink;
 }
+
 
 // ⌨️ Permite abrir o dashboard pressionando "Enter"
 function handleEnter(event, section) {
@@ -80,7 +92,10 @@ function goBack() {
     document.getElementById('backButton').style.display = 'none';
     document.getElementById('refreshButton').style.display = 'none';
     document.getElementById('dashboard').src = '';
+
+    hideSidebar(); // <-- esconde a sidebar aqui
 }
+
 
 // 🔄 Recarregar o dashboard
 function reloadDashboard() {

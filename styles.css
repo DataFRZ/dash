@@ -123,16 +123,19 @@ h1 {
 .password-input:focus {
     border-color: #D48E00;
 }
+
 .dashboard {
     display: none;
-    width: 100vw;
-    height: 100vh;
+    width: calc(100% - 100px);  /* ocupa tudo, menos 100px da esquerda */
+    height: calc(100% + 60px);
     border: none;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 100px;                /* começa 100px pra direita */
     z-index: 10;
 }
+
+
 
 .button img.icon {
     width: 80px; /* Ajuste para o tamanho que preferir */
@@ -140,6 +143,7 @@ h1 {
     margin-right: 10px; /* Adiciona um pequeno espaço entre a imagem e o texto */
     vertical-align: middle; /* Alinha a imagem verticalmente no meio do botão */
 }
+
 
 
 #backButton, #refreshButton {
@@ -213,3 +217,20 @@ h1 {
 .button-row.center {
   justify-content: center;
 }
+
+.container {
+    padding-left: 0px;
+  }
+  
+
+.sidebar-vazia {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100vh;
+    background-color: #212121;
+    z-index: 20; /* acima do dashboard */
+  }
+  
