@@ -33,7 +33,7 @@
 					</div>
 				</div>
 			</div>
-
+			
 			<div class="button-row center">
 				<div class="category">
 					<button class="button" onclick="togglePassword('marketing')">📢 Marketing</button>
@@ -49,9 +49,19 @@
 						<button class="enter-button" onclick="openDashboard('treinador')">Entrar</button>
 					</div>
 				</div>
+				
+			<div class="button-row center">
 				<div class="category">
-					<button class="button" onclick="openRanking()">🏆 Ranking Unidades</button>
+					<button class="button" onclick="togglePassword('administrativo')">🗂️ Administrativo</button>
+					<div class="password-container" id="administrativoPasswordContainer">
+						<input type="password" class="password-input" id="administrativoPassword" placeholder="Senha" onkeydown="handleEnter(event, 'administrativo')">
+						<button class="enter-button" onclick="openDashboard('administrativo')">Entrar</button>
+					</div>
 				</div>
+			</div>
+			<div class="category">
+				<button class="button" onclick="openRanking()">🏆 Ranking Unidades</button>
+			</div>
 
 				</div>
 			</div>

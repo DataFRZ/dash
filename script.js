@@ -4,14 +4,16 @@ const encodedData = {
         pedagogico: btoa('Ped##2025'),
         financeiro: btoa('Fin$#2025'),
         treinador : btoa('Tre!#2025'),
-        marketing: btoa('Mar%#2025')
+        marketing: btoa('Mar%#2025'),
+        administrativo: btoa('Adm&#2025')
     },
     dashboardLinks: {
         comercial: btoa('https://app.powerbi.com/view?r=eyJrIjoiNmEyZjEyYzgtMmQ2OC00MDdlLWE1NWItMzhjZTkxOGUwOTY1IiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
-        pedagogico: btoa('https://app.powerbi.com/view?r=eyJrIjoiODdlMWJkNDQtZGQ0Yy00OGZiLWIxZGUtY2E1YmI4NmRiMTg1IiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'), 
+        pedagogico: btoa('https://app.powerbi.com/view?r=eyJrIjoiODdlMWJkNDQtZGQ0Yy00OGZiLWIxZGUtY2E1YmI4NmRiMTg1IiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
         financeiro: btoa('https://app.powerbi.com/view?r=eyJrIjoiYTI0MjdkMDctNTc2MC00OTM1LWI0NDItNTM0N2NhZmE5YmZkIiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
         marketing: btoa('https://app.powerbi.com/view?r=eyJrIjoiZDk2YTkxZDAtY2NmNy00YmU5LWFkYzAtZDNiOGFmZDE4N2U2IiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
         treinador: btoa('https://app.powerbi.com/view?r=eyJrIjoiZDAyZGI0NTItZTUyMi00MzA4LTlkZDAtNzk3NzU2M2NhNjViIiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
+        administrativo: btoa('https://app.powerbi.com/view?r=eyJrIjoiMTNjNWFlODktYWY0ZC00MmJlLThkZTItMDIyMWFjYWMxZjc3IiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'), // 👈 NOVO
         ranking: btoa('https://app.powerbi.com/view?r=eyJrIjoiZWE3MTE4ZmItMDI1ZS00MjVlLWFkZTQtZjM5OWJkYjM1NjcxIiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9')
     }
 };
