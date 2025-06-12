@@ -13,7 +13,7 @@ const encodedData = {
         financeiro: btoa('https://app.powerbi.com/view?r=eyJrIjoiYTI0MjdkMDctNTc2MC00OTM1LWI0NDItNTM0N2NhZmE5YmZkIiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
         marketing: btoa('https://app.powerbi.com/view?r=eyJrIjoiZDk2YTkxZDAtY2NmNy00YmU5LWFkYzAtZDNiOGFmZDE4N2U2IiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
         treinador: btoa('https://app.powerbi.com/view?r=eyJrIjoiZDAyZGI0NTItZTUyMi00MzA4LTlkZDAtNzk3NzU2M2NhNjViIiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
-        administrativo: btoa('https://app.powerbi.com/view?r=eyJrIjoiMTNjNWFlODktYWY0ZC00MmJlLThkZTItMDIyMWFjYWMxZjc3IiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'), // 👈 NOVO
+        administrativo: btoa('https://app.powerbi.com/view?r=eyJrIjoiMTNjNWFlODktYWY0ZC00MmJlLThkZTItMDIyMWFjYWMxZjc3IiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9'),
         ranking: btoa('https://app.powerbi.com/view?r=eyJrIjoiZWE3MTE4ZmItMDI1ZS00MjVlLWFkZTQtZjM5OWJkYjM1NjcxIiwidCI6IjQwODYyZjk0LWRjZWYtNDI1Mi05ODJiLTU4MGEzZTZiYjVmYiJ9')
     }
 };
